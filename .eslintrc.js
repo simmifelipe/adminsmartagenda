@@ -39,6 +39,8 @@ module.exports = {
     "react/jsx-props-no-spreading": ['off', {
       "custom": "ignore",
     }],
+    camelcase: "off",
+    "no-underscore-dangle":  ["error", { "allow": ["_id"] }]
   },
   settings: {
     "import/resolver": {
