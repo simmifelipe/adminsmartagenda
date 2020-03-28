@@ -26,7 +26,7 @@ module.exports = {
     'react-hooks',
   ],
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', {"endOfLine":"auto"}],
     'react/jsx-filename-extension': [
       'warn',
       { extensions: ['.jsx', '.js'] }
@@ -40,7 +40,8 @@ module.exports = {
       "custom": "ignore",
     }],
     camelcase: "off",
-    "no-underscore-dangle":  ["error", { "allow": ["_id"] }]
+    "no-underscore-dangle":  ["error", { "allow": ["_id"] }],
+    "indent": [ "error", 2 ],
   },
   settings: {
     "import/resolver": {
