@@ -25,15 +25,11 @@ export default function Profile() {
         <AvatarInput name="avatar_id" />
 
         <Input name="name" placeholder="Nome completo" />
-        <Input name="email" type="email" placeholder="Seu endereço de e-mail" />
+        <Input name="email" type="email" placeholder="E-mail" />
 
         <hr />
 
-        <Input
-          name="oldPassword"
-          type="password"
-          placeholder="Sua senha atual"
-        />
+        <Input name="oldPassword" type="password" placeholder="Senha atual" />
         <Input name="password" type="password" placeholder="Nova senha" />
         <Input
           name="confirmPassword"
@@ -45,7 +41,7 @@ export default function Profile() {
       </Form>
 
       <button type="button" onClick={handleSignOut}>
-        Sair do Smart Agenda
+        Sair
       </button>
     </Container>
   );

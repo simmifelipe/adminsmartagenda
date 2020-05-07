@@ -12,9 +12,31 @@ import {
 import { utcToZonedTime } from 'date-fns-tz';
 import pt from 'date-fns/locale/pt';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+// eslint-disable-next-line
+import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
 
-import { Container, Time } from './styles';
+import Grid from '@material-ui/core/Grid';
+import moment from 'moment';
+import MomentUtils from '@date-io/moment';
+
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+
+import 'moment/locale/pt-br';
+import styled from 'styled-components';
+import { StyledPicker, Container, Time } from './styles';
 import api from '~/services/api';
+
+// Cor do Calendário quando abre
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#3cba92',
+    },
+  },
+});
+
+const locale = 'ptBR';
+moment.locale('ptBR');
 
 const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
@@ -27,6 +49,11 @@ export default function Dashboard() {
     [date]
   );
 
+  const [selectedDate, setSelectedDate] = React.useState(new Date(date));
+
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
   useEffect(() => {
     async function loadSchedule() {
       const response = await api.get('schedule', {
@@ -61,18 +88,44 @@ export default function Dashboard() {
     setDate(addDays(date, 1));
   }
 
+  function openData() {
+    document.querySelector('[aria-label="change date"]').click();
+  }
+
   return (
     <Container>
       <header>
         <button type="button" onClick={handlePrevDay}>
           <MdChevronLeft color="#fff" size={36} />
         </button>
-        <strong>{dateFormatted}</strong>
+        <button onClick={openData}>
+          <strong>{dateFormatted}</strong>
+        </button>
         <button type="button" onClick={handleNextDay}>
           <MdChevronRight color="#fff" size={36} />
         </button>
       </header>
 
+      <ThemeProvider theme={theme}>
+        <MuiPickersUtilsProvider
+          libInstance={moment}
+          utils={MomentUtils}
+          locale={locale}
+        >
+          <Grid container justify="space-around">
+            <StyledPicker
+              // disablePast="true"
+              margin="normal"
+              format="MM/dd/yyyy"
+              value={selectedDate}
+              onChange={handleDateChange}
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+            />
+          </Grid>
+        </MuiPickersUtilsProvider>
+      </ThemeProvider>
       <ul>
         {schedule.map(time => (
           <Time key={time.time} past={time.past} available={!time.appointment}>

@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background: linear-gradient(-90deg, #7159c1, #ab59c1);
+  background: linear-gradient(-90deg, #0ba360, #3cba92);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,26 +34,38 @@ export const Content = styled.div`
     }
 
     span {
-      color: #fb6f91;
+      background-color: #EF5648;
+      color: #fff;
       align-self: flex-start;
       margin: 0 0 10px;
+      padding: 4px;
       font-weight: bold;
+      border-radius: 5px;
     }
 
     button {
       margin: 5px 0 0;
       height: 44px;
-      background: #3b9eff;
+      background: #fff;
       font-weight: bold;
-      color: #fff;
+      color: #3cba92;
       border: 0;
+      border-color: #ffff;
       border-radius: 4px;
       font-size: 16px;
-      transition: background 0.2s;
+      transition: 0.2s;
 
       &:hover {
-        background: ${darken(0.04, '#3b9eff')};
+        border: 2px;
+        background: ${darken(0.08, '#3cba92')};
+        color: #fff;
+        border-style: solid;
+        border-color: #fff;
       }
+    }
+
+    login:hover {
+      border-radius: 20px;  
     }
 
     a {

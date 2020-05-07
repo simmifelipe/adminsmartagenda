@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Badge = styled.button`
-  background: none;
+  background: transparent;
   border: 0;
   position: relative;
   ${props =>
@@ -24,6 +24,10 @@ export const Badge = styled.button`
         border-radius: 50%;
       }
     `}
+  &:hover {
+    background: #ECECEC;
+    border-radius: 4px;
+  }  
 `;
 
 export const NotificationList = styled.div`

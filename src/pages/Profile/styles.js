@@ -4,6 +4,12 @@ import { darken } from 'polished';
 export const Container = styled.div`
   max-width: 600px;
   margin: 50px auto;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
   form {
     display: flex;
@@ -41,34 +47,43 @@ export const Container = styled.div`
     button {
       margin: 5px 0 0;
       height: 44px;
-      background: #3b9eff;
+      background: #fff;
       font-weight: bold;
-      color: #fff;
+      color: #3cba92;
       border: 0;
+      border-color: #ffff;
       border-radius: 4px;
       font-size: 16px;
-      transition: background 0.2s;
+      transition: 0.2s;
 
       &:hover {
-        background: ${darken(0.04, '#3b9eff')};
+        border: 2px;
+        background: ${darken(0.08, '#3cba92')};
+        color: #fff;
+        border-style: solid;
+        border-color: #fff;
       }
     }
   }
 
   > button {
-    width: 100%;
-    margin: 10px 0 0;
+    margin: 15px 0 0;
     height: 44px;
-    background: #f64c75;
+    background: #fff;
     font-weight: bold;
-    color: #fff;
+    color: #ff2326;
     border: 0;
+    border-color: #ffff;
     border-radius: 4px;
     font-size: 16px;
-    transition: background 0.2s;
+    transition: 0.2s;
 
     &:hover {
-      background: ${darken(0.08, '#f64c75')};
+      border: 2px;
+      background: ${darken(0.08, '#ff2326')};
+      color: #fff;
+      border-style: solid;
+      border-color: #fff;
     }
   }
 `;
