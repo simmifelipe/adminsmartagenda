@@ -18,6 +18,13 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+
+import HomeIcon from '@material-ui/icons/Home';
+import ListIcon from '@material-ui/icons/List';
+import PersonIcon from '@material-ui/icons/Person';
+
 import api from '~/services/api';
 import { Container } from './styles';
 
@@ -35,11 +42,11 @@ const useStyles = makeStyles(theme => ({
       marginBottom: theme.spacing(3),
     },
   },
-  root: {
+  navBar: {
     flexGrow: 1,
-    backgroundColor: 'transparent',
+    backgroundColor: '##d9d9d9',
     '& .MuiBottomNavigationAction-root.Mui-selected': {
-      color: '#fff',
+      color: '#3cba92',
     },
   },
   paper: {
@@ -67,8 +74,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#3cba92',
     borderRadius: '16px',
     '&:hover': {
-      background: "#309676",
-   },
+      background: '#309676',
+    },
   },
 }));
 
@@ -84,6 +91,7 @@ const CheckBox = withStyles({
 
 export default function Services() {
   const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
   const [state, setState] = React.useState({
     checked1: false,
@@ -169,7 +177,7 @@ export default function Services() {
                       name="checked4"
                     />
                   }
-                  label="1 hr"
+                  label="60 min"
                 />
               </FormGroup>
             </div>
@@ -284,6 +292,19 @@ export default function Services() {
           </Grid>
         </Paper>
       </div>
+      <BottomNavigation
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        showLabels
+        className={classes.navBar}
+        style={{ width: 'auto', height: 'auto' }}
+      >
+        <BottomNavigationAction label="Serviços" icon={<ListIcon />} />
+        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction label="Perfil" icon={<PersonIcon />} />
+      </BottomNavigation>
     </Container>
   );
 }

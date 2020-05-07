@@ -34,7 +34,7 @@ export const Content = styled.div`
     }
 
     span {
-      background-color: #EF5648;
+      background-color: #ef5648;
       color: #fff;
       align-self: flex-start;
       margin: 0 0 10px;
@@ -65,7 +65,7 @@ export const Content = styled.div`
     }
 
     login:hover {
-      border-radius: 20px;  
+      border-radius: 20px;
     }
 
     a {
