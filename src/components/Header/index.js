@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Notifications from '~/components/Notifications';
-import logo from '~/assets/logo-purple.svg';
+import logo from '~/assets/logo_dash.png';
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
@@ -18,11 +18,11 @@ export default function Header() {
         </nav>
 
         <aside>
-          <Notifications />
+          <Notifications/>
 
           <Profile>
             <div>
-              <strong>{profile.name}</strong>
+              <strong>Olá, {profile.name}</strong>
               <Link to="/profile">Meu perfil</Link>
             </div>
             <img

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   background: #fff;
-  padding: 0 30px;
+  padding: 0 5px;
 `;
 
 export const Content = styled.div`
@@ -20,12 +20,12 @@ export const Content = styled.div`
     img {
       margin-right: 20px;
       padding-right: 20px;
-      border-right: 1px solid #eee;
+      border-right: 1px solid #3cba92;
     }
 
     a {
       font-weight: bold;
-      color: #7159c1;
+      color: #3cba92;
     }
   }
 
@@ -39,7 +39,7 @@ export const Profile = styled.div`
   display: flex;
   margin-left: 20px;
   padding-left: 20px;
-  border-left: 1px solid #eee;
+  border-left: 1px solid #3cba92;
 
   div {
     text-align: right;
@@ -47,14 +47,15 @@ export const Profile = styled.div`
 
     strong {
       display: block;
-      color: #333;
+      color: #3cba92;
+      font-size: 15px;
     }
 
     a {
       display: block;
       margin-top: 2px;
-      font-size: 12px;
-      color: #999;
+      font-size: 13px;
+      color: #3cba92;
     }
   }
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
-import logo from '~/assets/logo.svg';
+import logo from '~/assets/logo_new.png';
 import { signUpRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
@@ -30,11 +30,11 @@ export default function SignUp() {
 
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input name="name" placeholder="Nome completo" />
-        <Input name="email" type="email" placeholder="Seu e-mail" />
+        <Input name="email" type="email" placeholder="E-mail" />
         <Input
           name="password"
           type="password"
-          placeholder="Sua senha secreta"
+          placeholder="Senha"
         />
 
         <button type="submit">Criar conta</button>
